@@ -13,7 +13,7 @@ git clone https://github.com/HardworkingSnowman/IoT_final.git
 4. 每個人都有一個資料夾，資料夾名稱為學號，裡面都有一份 bombergirl，在自己的資料夾中把自己那份工作改好，別改到別人的資料夾的東西，不然如果兩個人改到同份檔案會產生衝突，也別改到個人的資料夾外的那份 bombergirl，那是給最後統整的人改的也是我們最後的結果。ps. 如果要兩個人一起改，要事先說好
 5. 以後當做完一部份，想要更新到 github 上面時
 ```
-Linux or Mac:
+# Linux or Mac:
 # cd 到之前存放的資料夾
 cd "Path"
 sudo git pull
@@ -21,7 +21,7 @@ sudo git add --all
 sudo git commit -m "裡面寫改了什麼，寫什麼都可以"
 sudo git push
 
-Windows:
+# Windows:
 # cd 到之前存放的資料夾
 cd "Path"
 git pull
