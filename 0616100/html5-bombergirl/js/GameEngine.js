@@ -49,6 +49,9 @@ GameEngine = Class.extend({
             that.playerBoyImg = queue.getResult("playerBoy");
             that.playerGirlImg = queue.getResult("playerGirl");
             that.playerGirl2Img = queue.getResult("playerGirl2");
+            /* change */
+            that.sniper = queue.getResult("sniper");
+            /* change */
             that.tilesImgs.grass = queue.getResult("tile_grass");
             that.tilesImgs.wall = queue.getResult("tile_wall");
             that.tilesImgs.wood = queue.getResult("tile_wood");
@@ -61,6 +64,9 @@ GameEngine = Class.extend({
             {id: "playerBoy", src: "img/george.png"},
             {id: "playerGirl", src: "img/betty.png"},
             {id: "playerGirl2", src: "img/betty2.png"},
+            /* change */
+            {id: "sniper", src: "img/sniper.png"},
+            /* change */
             {id: "tile_grass", src: "img/tile_grass.png"},
             {id: "tile_wall", src: "img/tile_wall.png"},
             {id: "tile_wood", src: "img/tile_wood.png"},
@@ -292,6 +298,18 @@ GameEngine = Class.extend({
             var player2 = new Player({ x: this.tilesX - 2, y: this.tilesY - 2 }, controls, 1);
             this.players.push(player2);
         }
+
+        /* change */
+        var sniper_controls = {
+            'up': 'sniper_up',
+            'left': 'sniper_left',
+            'down': 'sniper_down',
+            'right': 'sniper_right',
+            'bomb': 'sniper_bomb'
+        };
+        var sniper = new Sniper({x:8, y:6}, sniper_controls, 100);
+        this.players.push(sniper);
+        /* change */
     },
 
     /**
