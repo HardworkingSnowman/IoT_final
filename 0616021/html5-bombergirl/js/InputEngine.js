@@ -15,7 +15,7 @@ InputEngine = Class.extend({
 
     init: function() {
     },
-
+	
     setup: function() {
         this.bind(38, 'up');
         this.bind(37, 'left');
@@ -34,11 +34,41 @@ InputEngine = Class.extend({
         this.bind(27, 'escape');
         this.bind(77, 'mute');
 
-        document.addEventListener('keydown', this.onKeyDown);
-        document.addEventListener('keyup', this.onKeyUp);
+		document.addEventListener('control', this.onKeyDown);
+        document.addEventListener('controlend', this.onKeyUp);
+		
+        //document.addEventListener('keydown', this.onKeyDown);
+        //document.addEventListener('keyup', this.onKeyUp);
     },
 
-    onKeyDown: function(event) {
+	onKeyDown: function(event1) {
+        var action = gInputEngine.bindings[event1.detail.value];
+		console.log("%d",parseInt(event1.detail.value));
+        if (action) {
+            gInputEngine.actions[action] = true;
+            event1.preventDefault();
+        }
+        return false;
+    },
+
+    onKeyUp: function(event2) {
+        var action = gInputEngine.bindings[event2.detail.value];
+        if (action) {
+            gInputEngine.actions[action] = false;
+
+            var listeners = gInputEngine.listeners[action];
+            if (listeners) {
+                for (var i = 0; i < listeners.length; i++) {
+                    var listener = listeners[i];
+                    listener();
+                }
+            }
+            event2.preventDefault();
+        }
+        return false;
+    },
+	
+    /*onKeyDown: function(event) {
         var action = gInputEngine.bindings[event.keyCode];
         if (action) {
             gInputEngine.actions[action] = true;
@@ -62,7 +92,7 @@ InputEngine = Class.extend({
             event.preventDefault();
         }
         return false;
-    },
+    },*/
 
     /**
      * The bind function takes an ASCII keycode and a string representing

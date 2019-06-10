@@ -37,7 +37,7 @@ Player = Entity.extend({
     alive: true,
 
     bombs: [],
-
+	
     controls: {
         'up': 'up',
         'left': 'left',
@@ -158,9 +158,10 @@ Player = Entity.extend({
             this.animate('right');
             position.x += this.velocity;
             dirX = 1;
-        } else {
+        } /*else {
             this.animate('idle');
-        }
+			console.log("idle");
+        }*/
 
         if (position.x != this.bmp.x || position.y != this.bmp.y) {
             if (!this.detectBombCollision(position)) {
