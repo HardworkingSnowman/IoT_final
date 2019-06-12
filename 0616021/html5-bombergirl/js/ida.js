@@ -5,7 +5,7 @@
 		var profile = {
 		    'dm_name': 'control_character',          
 			'idf_list': [],
-		    'odf_list':[[control]],
+		    'odf_list':[[control],[smartphone_0616018v2]],
         };
 		controlvalue = 0;
 		var temp;
@@ -87,7 +87,36 @@
 			temp = data[0];
 		}
 		
-        
+		function smartphone_0616018v2(data){
+            if(data[2] < 0){
+                console.log(data[2]);
+                gInputEngine.bombput();
+            }
+            else if(Math.abs(data[0]) > Math.abs(data[1])){
+                gInputEngine.actions['sniper_down'] = false;
+                gInputEngine.actions['sniper_up'] = false;
+                if(data[0]>0){
+                    gInputEngine.actions['sniper_right'] = false;
+                    gInputEngine.actions['sniper_left'] = true;
+                }
+                else{
+                    gInputEngine.actions['sniper_right'] = true;
+                    gInputEngine.actions['sniper_left'] = false;
+                }
+            }
+            else{
+                gInputEngine.actions['sniper_right'] = false;
+                gInputEngine.actions['sniper_left'] = false;
+                if(-data[1]>0){
+                    gInputEngine.actions['sniper_down'] = false;
+                    gInputEngine.actions['sniper_up'] = true;
+                }
+                else{
+                    gInputEngine.actions['sniper_down'] = true;
+                    gInputEngine.actions['sniper_up'] = false;
+                }
+            }
+        }
        /* var profile = {
 		    'dm_name': 'snake313',          
 			'idf_list': [],
