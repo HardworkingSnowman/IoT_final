@@ -31,6 +31,14 @@ InputEngine = Class.extend({
         this.bind(68, 'right2');
         this.bind(16, 'bomb2');
 
+        /* change */
+        this.bind(73, 'sniper_up');
+        this.bind(74, 'sniper_left');
+        this.bind(75, 'sniper_down');
+        this.bind(76, 'sniper_right');
+        this.bind(190, 'sniper_bomb');
+        /* change */
+
         this.bind(13, 'restart');
         this.bind(27, 'escape');
         this.bind(77, 'mute');
@@ -40,6 +48,27 @@ InputEngine = Class.extend({
 		
         //document.addEventListener('keydown', this.onKeyDown);
         //document.addEventListener('keyup', this.onKeyUp);
+    },
+
+    bombput:function(){
+        var action = gInputEngine.bindings[190];
+        if (action) {
+            gInputEngine.actions[action] = true;
+        }
+
+        var action = gInputEngine.bindings[190];
+        if (action) {
+            gInputEngine.actions[action] = false;
+
+            var listeners = gInputEngine.listeners[action];
+            if (listeners) {
+                for (var i = 0; i < listeners.length; i++) {
+                    var listener = listeners[i];
+                    listener();
+                }
+            }
+        }
+        return false;
     },
 
 	onKeyDown: function(event1) {
