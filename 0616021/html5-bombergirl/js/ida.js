@@ -1,6 +1,6 @@
  $(function(){
         set_endpoint('http://iottalk2.tw:9992');
-		set_PUSH_INTERVAL(200);  // unit: ms
+		set_PUSH_INTERVAL(10);  // unit: ms
 		
 		var profile = {
 		    'dm_name': 'control_character',          
@@ -12,11 +12,11 @@
 		function control(data){
 			
 			if(data[0] != temp){
-				//console.log("ok");
-				/*if(temp == 1){
-					event2 = new CustomEvent('controlend',{'detail':{value: 32}});
-					document.dispatchEvent(event2);
-				}*/
+				console.log("ok");
+				//if(temp == 1){
+					//event2 = new CustomEvent('controlend',{'detail':{value: 32}});
+					//document.dispatchEvent(event2);
+				//}
 				if(temp == 2){
 					event2 = new CustomEvent('controlend',{'detail':{value: 39}});
 					document.dispatchEvent(event2);
@@ -39,20 +39,20 @@
 				$('.action')[0].innerText="bomb";
 				controlvalue = 32;
 				event1 = new CustomEvent('control',{'detail':{value: 32}});
-				/*var t=setTimeout(function(){
+				var t=setTimeout(function(){
 					event2 = new CustomEvent('controlend',{'detail':{value: 32}});
-					document.dispatchEvent(event2);},10);*/
-				event2 = new CustomEvent('controlend',{'detail':{value: 32}});
-				document.dispatchEvent(event2);
+					document.dispatchEvent(event2);},10);
+				//event2 = new CustomEvent('controlend',{'detail':{value: 32}});
+				//document.dispatchEvent(event2);
 			}
 			else if(data[0] == 2){//right
 				$('.action')[0].innerText="right";
 				controlvalue = 39;
 				event1 = new CustomEvent('control',{'detail':{value: 39}});
 				document.dispatchEvent(event1);
-				/*var t=setTimeout(function(){
-					event2 = new CustomEvent('controlend',{'detail':{value: 39}});
-					document.dispatchEvent(event2);},300);*/
+				//var t=setTimeout(function(){
+					//event2 = new CustomEvent('controlend',{'detail':{value: 39}});
+					//document.dispatchEvent(event2);},300);
 			}
 			
 			else if(data[0] == 3){//left
@@ -60,9 +60,9 @@
 				controlvalue = 37;
 				event1 = new CustomEvent('control',{'detail':{value: 37}});
 				document.dispatchEvent(event1);
-				/*var t=setTimeout(function(){
-					event2 = new CustomEvent('controlend',{'detail':{value: 37}});
-					document.dispatchEvent(event2);},300);*/
+				//var t=setTimeout(function(){
+					//event2 = new CustomEvent('controlend',{'detail':{value: 37}});
+					//document.dispatchEvent(event2);},300);
 			}
 			
 			else if(data[0] == 4){//up
@@ -70,9 +70,9 @@
 				controlvalue = 38;
 				event1 = new CustomEvent('control',{'detail':{value: 38}});
 				document.dispatchEvent(event1);
-			/*	var t=setTimeout(function(){
-					event2 = new CustomEvent('controlend',{'detail':{value: 38}});
-					document.dispatchEvent(event2);},300);*/
+			//	var t=setTimeout(function(){
+					//event2 = new CustomEvent('controlend',{'detail':{value: 38}});
+					//document.dispatchEvent(event2);},300);
 			}
 			
 			else if(data[0] == 5){//down
@@ -80,15 +80,15 @@
 				controlvalue = 40;
 				event1 = new CustomEvent('control',{'detail':{value: 40}});
 				document.dispatchEvent(event1);
-				/*var t=setTimeout(function(){
-					event2 = new CustomEvent('controlend',{'detail':{value: 40}});
-					document.dispatchEvent(event2);},300);*/
+				//var t=setTimeout(function(){
+					//event2 = new CustomEvent('controlend',{'detail':{value: 40}});
+					//document.dispatchEvent(event2);},300);
 			}
 			temp = data[0];
 		}
 		
         
-     /*   var profile = {
+       /* var profile = {
 		    'dm_name': 'snake313',          
 			'idf_list': [],
 		    'odf_list':[[snake313,['None']]],

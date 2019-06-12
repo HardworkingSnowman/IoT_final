@@ -5,6 +5,7 @@ Player = Entity.extend({
      * Moving speed
      */
     velocity: 2,
+	velocityme: 3,
 
     /**
      * Max number of bombs user can spawn
@@ -144,19 +145,19 @@ Player = Entity.extend({
         var dirY = 0;
         if (gInputEngine.actions[this.controls.up]) {
             this.animate('up');
-            position.y -= this.velocity;
+            position.y -= this.velocityme;
             dirY = -1;
         } else if (gInputEngine.actions[this.controls.down]) {
             this.animate('down');
-            position.y += this.velocity;
+            position.y += this.velocityme;
             dirY = 1;
         } else if (gInputEngine.actions[this.controls.left]) {
             this.animate('left');
-            position.x -= this.velocity;
+            position.x -= this.velocityme;
             dirX = -1;
         } else if (gInputEngine.actions[this.controls.right]) {
             this.animate('right');
-            position.x += this.velocity;
+            position.x += this.velocityme;
             dirX = 1;
         } /*else {
             this.animate('idle');
