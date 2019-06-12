@@ -52,6 +52,7 @@ var dai = function (profile, ida) {
             odf_name = odf_name.substr(0, odf_name.length-2) + '-' + odf_name.substr(odf_name.length-1);
         }		
         odf_func[odf_name] = profile.odf_list[i][0];
+		console.log("%s",profile.odf_list[i][0]);
         profile.odf_list[i][0] = odf_name;
     }
 

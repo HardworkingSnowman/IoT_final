@@ -17,6 +17,7 @@ InputEngine = Class.extend({
     },
 	
     setup: function() {
+		
         this.bind(38, 'up');
         this.bind(37, 'left');
         this.bind(40, 'down');
@@ -43,7 +44,7 @@ InputEngine = Class.extend({
 
 	onKeyDown: function(event1) {
         var action = gInputEngine.bindings[event1.detail.value];
-		console.log("%d",parseInt(event1.detail.value));
+		//console.log("%d",parseInt(event1.detail.value));
         if (action) {
             gInputEngine.actions[action] = true;
             event1.preventDefault();
