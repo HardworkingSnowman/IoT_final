@@ -6,7 +6,3 @@
 4. 在 GameEngine.js 52, 67行註冊標靶圖片
 5. 在 GameEngine.js 302行把 sniper 註冊進去
 6. ida.js 新增了手機控制的 function，並且已經設定在我們的 IoT project 中了
-* 以上除了第6項之外都測試過了
-
-## 還需要:
-1. 標靶還不能用手機放炸彈
