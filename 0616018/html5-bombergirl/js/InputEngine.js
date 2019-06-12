@@ -46,6 +46,27 @@ InputEngine = Class.extend({
         document.addEventListener('keyup', this.onKeyUp);
     },
 
+    bombput:function(){
+        var action = gInputEngine.bindings[190];
+        if (action) {
+            gInputEngine.actions[action] = true;
+        }
+
+        var action = gInputEngine.bindings[190];
+        if (action) {
+            gInputEngine.actions[action] = false;
+
+            var listeners = gInputEngine.listeners[action];
+            if (listeners) {
+                for (var i = 0; i < listeners.length; i++) {
+                    var listener = listeners[i];
+                    listener();
+                }
+            }
+        }
+        return false;
+    },
+
     onKeyDown: function(event) {
         var action = gInputEngine.bindings[event.keyCode];
         if (action) {
