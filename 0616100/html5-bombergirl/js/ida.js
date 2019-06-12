@@ -7,6 +7,7 @@
 		        'd_name': 'Smartphone0616100',
         };
         function Acceleration_0616100(data){
+            console.log(data);
             if(Math.abs(data[0]) > Math.abs(data[1])){
                 gInputEngine.actions['sniper_down'] = false;
                 gInputEngine.actions['sniper_up'] = false;

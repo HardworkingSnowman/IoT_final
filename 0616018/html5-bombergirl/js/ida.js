@@ -25,7 +25,7 @@
             else{
                 gInputEngine.actions['sniper_right'] = false;
                 gInputEngine.actions['sniper_left'] = false;
-                if(data[1]>0){
+                if(-data[1]>0){
                     gInputEngine.actions['sniper_down'] = false;
                     gInputEngine.actions['sniper_up'] = true;
                 }
